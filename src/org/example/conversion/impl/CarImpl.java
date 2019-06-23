@@ -3,6 +3,7 @@ package org.example.conversion.impl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.example.conversion.Car;
 
@@ -23,7 +24,9 @@ public class CarImpl implements Car {
 	}
 
 	public void setDate(String value) throws ParseException {
-		this.date = new SimpleDateFormat("dd.MM.yyyy").parse(value);
+		SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+		df.setTimeZone(TimeZone.getTimeZone("UTC"));
+		this.date = df.parse(value);
 	}
 
 	@Override
