@@ -11,6 +11,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import org.example.conversion.ConversionAPI;
 import org.example.conversion.Document;
 import org.example.conversion.DocumentProcessor;
 import org.example.conversion.FileUtils;
@@ -19,7 +20,7 @@ public class XMLDocumentProcessor implements DocumentProcessor {
 
 	@Override
 	public String getSupportedFileFormat() {
-		return FORMAT_XML;
+		return ConversionAPI.FORMAT_XML;
 	}
 
 	@Override

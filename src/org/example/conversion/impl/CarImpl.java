@@ -49,4 +49,15 @@ public class CarImpl implements Car {
 		this.price = price;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Car={")
+			.append("Date=").append(date)
+			.append(", BrandName=").append(brand)
+			.append(", Price=").append(price)
+			.append("}");
+		return sb.toString();
+	}
+
 }

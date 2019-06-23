@@ -5,11 +5,14 @@ import java.util.List;
 
 public class ConversionAPI {
 
+	public final static String FORMAT_XML = "XML";
+	public final static String FORMAT_BINARY = "BINARY";  
+
 	public static void registerProcessor(DocumentProcessor processor) {
 		Processors.registerProcessor(processor);
 	}
 
-	public Document loadFile(String fileName) throws IOException {
+	public static Document loadFile(String fileName) throws IOException {
 		List<DocumentProcessor> processors = Processors.getProcessors();
 		for(DocumentProcessor p : processors) {
 			if (p.isSupportedFileFormat(fileName)) {
@@ -19,7 +22,7 @@ public class ConversionAPI {
 		throw new IOException("Can't read this file: " + fileName);
 	}
 
-	public void save(String fileFormat, Document d, String fileName) throws IOException {
+	public static void save(String fileFormat, Document d, String fileName) throws IOException {
 		List<DocumentProcessor> processors = Processors.getProcessors();
 		for(DocumentProcessor p : processors) {
 			if (p.getSupportedFileFormat().equalsIgnoreCase(fileFormat)) {

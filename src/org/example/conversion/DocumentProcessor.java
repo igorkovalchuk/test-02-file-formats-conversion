@@ -5,9 +5,6 @@ import java.io.IOException;
 
 public interface DocumentProcessor {
 
-	public final static String FORMAT_XML = "XML";
-	public final static String FORMAT_BINARY = "BINARY";  
-
 	String getSupportedFileFormat();
 
 	boolean isSupportedFileFormat(String fileName);

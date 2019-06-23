@@ -79,7 +79,7 @@ public class XMLCar {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Car={")
+		sb.append("XMLCar={")
 			.append("Date=").append(date)
 			.append(", BrandName=").append(brand)
 			.append(", Price=").append(price)

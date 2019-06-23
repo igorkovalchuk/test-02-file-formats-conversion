@@ -3,6 +3,7 @@ package org.example.conversion.binary;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import org.example.conversion.ConversionAPI;
 import org.example.conversion.Document;
 import org.example.conversion.DocumentProcessor;
 
@@ -10,7 +11,7 @@ public class BinaryDocumentProcessor implements DocumentProcessor {
 
 	@Override
 	public String getSupportedFileFormat() {
-		return FORMAT_BINARY;
+		return ConversionAPI.FORMAT_BINARY;
 	}
 
 	@Override
