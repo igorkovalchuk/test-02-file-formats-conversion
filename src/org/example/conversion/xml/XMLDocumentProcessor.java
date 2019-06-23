@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.text.ParseException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -34,7 +35,12 @@ public class XMLDocumentProcessor implements DocumentProcessor {
 		File f = new File(fileName);
 		String text = FileUtils.loadTextFile(f);
 		XMLDocument xd = xmlStringToObject(text);
-		return xd.toImpl();
+		try {
+			return xd.toImpl();
+		}
+		catch (ParseException ex) {
+			throw new IOException(ex);
+		}
 	}
 
 	@Override

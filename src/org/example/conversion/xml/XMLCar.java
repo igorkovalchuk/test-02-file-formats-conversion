@@ -1,8 +1,15 @@
 package org.example.conversion.xml;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.example.conversion.Car;
+import org.example.conversion.impl.CarImpl;
 
 /*
 <Car>
@@ -28,6 +35,13 @@ public class XMLCar {
 		this.date = value;
 	}
 
+	@XmlTransient
+	public void setDate(Date value) {
+		SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+		df.setTimeZone(TimeZone.getTimeZone("UTC"));
+		setDate(df.format(value));
+	}
+
 	public String getBrandName() {
 		return brand;
 	}
@@ -47,11 +61,19 @@ public class XMLCar {
 	}
 
 	public static XMLCar fromImpl(Car c) {
-		return null;
+		XMLCar xc = new XMLCar();
+		xc.setDate(c.getDate());;
+		xc.setBrandName(c.getBrandName());
+		xc.setPrice(c.getPrice());
+		return xc;
 	}
 
-	public static Car toImpl() {
-		return null;
+	public Car toImpl() throws ParseException {
+		CarImpl c = new CarImpl();
+		c.setDate(getDate());
+		c.setBrandName(getBrandName());
+		c.setPrice(getPrice());
+		return c;
 	}
 
 	@Override

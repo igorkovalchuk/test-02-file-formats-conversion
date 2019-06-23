@@ -1,12 +1,14 @@
 package org.example.conversion;
 
+import java.util.Date;
+
 import org.example.conversion.impl.CarImpl;
 
 public interface Car {
 
-	String getDate();
+	Date getDate();
 
-	void setDate(String date);
+	void setDate(Date date);
 
 	String getBrandName();
 

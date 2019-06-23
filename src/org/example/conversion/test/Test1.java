@@ -2,9 +2,6 @@ package org.example.conversion.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.example.conversion.xml.XMLCar;
 import org.example.conversion.xml.XMLDocument;
 import org.example.conversion.xml.XMLDocumentProcessor;
@@ -44,12 +41,9 @@ class Test1 {
 		c2.setBrandName("ZAZ");
 		c2.setPrice(1500);
 
-		List<XMLCar> list = new ArrayList<>();
-		list.add(c1);
-		list.add(c2);
-
 		XMLDocument d1 = new XMLDocument();
-		d1.setCars(list);
+		d1.add(c1);
+		d1.add(c2);
 
 		String xml = XMLDocumentProcessor.objectToXmlString(d1);
 
