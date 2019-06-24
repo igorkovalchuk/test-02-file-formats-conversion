@@ -18,7 +18,10 @@ Auxiliary classes: FileUtils
 
 TO DO:
 
+ * fix the Maven based build and test;
  * support huge files (don't load the whole file in memory to parse its content); and the ByteBuffer limit is ~ 2GB file;
  * work with the broken files (where we can fetch at least the first records);
  * more meaningful exceptions, for example, the ParseException should say in which line the exception occurs; and there should be a nice way to process the restrictions like these "... should have positive values" instead of throwing the ParseException;
  * verify the free space before saving a file, http://commons.apache.org/io/apidocs/org/apache/commons/io/FileSystemUtils.html#freeSpaceKb(java.lang.String)
+
+Time spent: ~ 9.3h coding + 1.2h for Maven
