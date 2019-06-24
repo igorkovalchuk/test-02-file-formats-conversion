@@ -1,5 +1,6 @@
 package org.example.conversion.impl;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -11,7 +12,7 @@ public class DocumentImpl extends LinkedList<Car> implements Document {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public void addCar(Date date, String brandName, int price) {
+	public void addCar(Date date, String brandName, int price) throws ParseException {
 		CarImpl c = new CarImpl();
 		c.setDate(date);
 		c.setBrandName(brandName);

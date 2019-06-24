@@ -15,14 +15,21 @@ public class CarImpl implements Car {
 
 	@Override
 	public Date getDate() {
+		// TODO: properly support null values in this library;
+		if (date == null)
+			return new Date(0);
 		return date;
 	}
 
 	@Override
 	public void setDate(Date date) {
+		// TODO: properly support null values in this library;
+		if (date == null)
+			date = new Date(0);
 		this.date = date;
 	}
 
+	@Override
 	public void setDate(String value) throws ParseException {
 		SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
 		df.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -35,7 +42,9 @@ public class CarImpl implements Car {
 	}
 
 	@Override
-	public void setBrandName(String name) {
+	public void setBrandName(String name) throws ParseException {
+		if (name == null || name.length() == 0)
+			throw new ParseException("Brand Name", 0);
 		this.brand = name;
 	}
 
@@ -45,7 +54,9 @@ public class CarImpl implements Car {
 	}
 
 	@Override
-	public void setPrice(int price) {
+	public void setPrice(int price) throws ParseException {
+		if (price <= 0)
+			throw new ParseException("Price", 0);
 		this.price = price;
 	}
 
