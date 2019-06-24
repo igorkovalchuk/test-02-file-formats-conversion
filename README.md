@@ -19,6 +19,7 @@ Auxiliary classes: FileUtils
 TO DO:
 
  * fix the Maven based build and test;
+ * pull the JAXB library, using Maven, because JAXB not exists in the Java versions > 8;
  * support huge files (don't load the whole file in memory to parse its content); and the ByteBuffer limit is ~ 2GB file;
  * work with the broken files (where we can fetch at least the first records);
  * more meaningful exceptions, for example, the ParseException should say in which line the exception occurs; and there should be a nice way to process the restrictions like these "... should have positive values" instead of throwing the ParseException;
